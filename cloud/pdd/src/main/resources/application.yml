@@ -1,0 +1,8 @@
+server:
+  port: 8502
+
+spring:
+  application:
+    name: pdd
+  profiles:
+    active: dev

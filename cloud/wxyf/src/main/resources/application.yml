@@ -1,0 +1,8 @@
+server:
+  port: 8506
+
+spring:
+  application:
+    name: wxyf
+  profiles:
+    active: dev

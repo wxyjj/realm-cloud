@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.108.71.93:8848
+        username: nacos
+        password: HuangQing
+      config:
+        enabled: false
