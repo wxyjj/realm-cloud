@@ -37,10 +37,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- openfeign -->
+        <!-- sentinel-gateway -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
         </dependency>
     </dependencies>
 

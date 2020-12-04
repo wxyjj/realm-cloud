@@ -2,8 +2,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 47.108.71.93:8848
+        server-addr: 111.229.140.117:8848
         username: nacos
-        password: HuangQing
+        password: nacos
       config:
         enabled: false
+    sentinel:
+      transport:
+        dashboard: 111.229.140.117:8080

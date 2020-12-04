@@ -6,3 +6,10 @@ spring:
     name: wxyf
   profiles:
     active: dev
+
+feign:
+  sentinel:
+    enabled: true
+
+logging:
+  config: classpath:logback-spring.xml
