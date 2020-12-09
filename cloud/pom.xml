@@ -19,10 +19,10 @@
 
     <modules>
         <module>common</module>
-        <module>pdd</module>
-        <module>hpyf</module>
-        <module>wxyf</module>
         <module>gateway</module>
+        <module>hpyf</module>
+        <module>pdd</module>
+        <module>wxyf</module>
     </modules>
 
     <properties>
@@ -32,9 +32,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
         <spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
-        <!-- 通用属性 -->
+        <!-- 共有 -->
         <hutool.version>5.4.3</hutool.version>
-        <fastjson.version>1.2.73</fastjson.version>
     </properties>
 
     <dependencyManagement>
@@ -88,22 +87,29 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
         </dependency>
-        <!-- lombok -->
+        <!-- actuator -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!-- seata -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+        </dependency>
+
+        <!-- 公共分割线 -->
+
         <!-- hutool -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
-        <!-- fastjson -->
+        <!-- lombok -->
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 

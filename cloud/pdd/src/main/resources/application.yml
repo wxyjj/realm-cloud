@@ -1,15 +1,11 @@
 server:
   port: 8502
 
-spring:
-  application:
-    name: pdd
-  profiles:
-    active: dev
-
-feign:
-  sentinel:
-    enabled: true
-
 logging:
   config: classpath:logback-spring.xml
+
+pdd:
+  clientId: 16efa0cb7f074cc2aed38c38f1e5a40b
+  clientSecret: 06a58ac82ee2e8afc949cd2fb2eec4bc52ccd890
+  codeUrl: https://mms.pinduoduo.com/open.html?response_type=code&client_id=16efa0cb7f074cc2aed38c38f1e5a40b&redirect_uri=http://testpdd.biebailai.com/callback
+  wsAddress: wss://message-api.pinduoduo.com

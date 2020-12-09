@@ -1,6 +1,5 @@
 package com.example.gateway.swagger;
 
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.config.GatewayProperties;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.support.NameUtils;
@@ -19,7 +18,6 @@ import java.util.List;
  * @Date 2020/12/2 15:33
  * @Version 1.0
  */
-@Slf4j
 @Component
 @Primary
 public class SwaggerResourceConfig implements SwaggerResourcesProvider {
@@ -51,7 +49,6 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider {
     }
 
     private SwaggerResource swaggerResource(String name, String location) {
-        log.info("name:{},location:{}",name,location);
         SwaggerResource swaggerResource = new SwaggerResource();
         swaggerResource.setName(name);
         swaggerResource.setLocation(location);

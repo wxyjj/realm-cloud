@@ -7,6 +7,7 @@
         <groupId>com.example</groupId>
         <artifactId>cloud</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>pdd</artifactId>
@@ -16,32 +17,20 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <pop.version>1.9.59-all</pop.version>
-        <knife4j.version>2.0.5</knife4j.version>
+        <commons-pool2.version>2.7.0</commons-pool2.version>
     </properties>
 
     <dependencies>
-        <!-- 测试 -->
+        <!-- redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        <!-- web -->
+        <!-- commons-pool2 -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!--knife4j-micro-包含swagger2依赖-->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-micro-spring-boot-starter</artifactId>
-            <version>${knife4j.version}</version>
-        </dependency>
-        <!-- 拼多多 -->
-        <dependency>
-            <groupId>pop</groupId>
-            <artifactId>pop-sdk</artifactId>
-            <version>${pop.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${commons-pool2.version}</version>
         </dependency>
         <!-- 公共模块 -->
         <dependency>

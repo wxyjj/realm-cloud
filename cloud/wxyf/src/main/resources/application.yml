@@ -1,15 +1,9 @@
 server:
   port: 8506
 
-spring:
-  application:
-    name: wxyf
-  profiles:
-    active: dev
-
-feign:
-  sentinel:
-    enabled: true
-
 logging:
   config: classpath:logback-spring.xml
+
+rsa:
+  privateKey: MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAJ1YyRRDCzkAKspSw3xA+NOXV/nQkl/1VmBKteim2RNNOdxKSFIMw31Fri4N/wjBR/zaTfgwGUdn6IseMWkyVgbvFRGNaAUb523linAiugZeJUY5DKIKlSk/qHwFbRjPYovbYAqrMNwurb2FGfFhC4kBam8IrpKo+Temw9r8ByTZAgMBAAECgYEAkRGVupehljkgOo+Z6kpg33xuwUVaXxxsObVICCskgpY13XOjP/rClhITaCTBWUoSW/7N2iBGfj4/+VuqBKpDAwIsZxMTMWPyMonuw0jI6/OmeHRaSIZsrx0slyApl7g/2gCkKWBpyKTuGl1qxFG61hG2pmJl/cxML3G56w68BLECQQD0zAwQ0oY4gsZ4vCd7SqG/yKx9mbZfDqrKzT9srsIfO9BBeCqkmanmlYytJncOsVMZI+G3pg9yl6WdX3WsrM9tAkEApIw0Cd8d064+wApnLYdlRvEtE3lFpetQk6i+2pJi9403NBPwDitoZkHgGcgpc6t+j9RT2kdJ0LghGvB/wwNLnQJBAK6U8ynwKl8VDRy/+1xXfoG7SSEORd0HJdEajdghzjneO4jlfWwEVwImt7wpCZHF7yCn0WtbF/s+oZNZqB+s4wUCQQCW38MbRgv4Ou1ocmF2mo3fRWYaU/jrkF76dSBCEzVRXJdAVgOnSl/YWxCbMy/m0lkikgIsw27IRPx90gSjj9L1AkAhgV/7RVjospFAyHOuQSAIkYGypixgVEH2nVkeg4iLqg5CLzi8XwR3nfe1ybNt4dLREHeBl1ABiQAtuJzP8Be/
+  publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCdWMkUQws5ACrKUsN8QPjTl1f50JJf9VZgSrXoptkTTTncSkhSDMN9Ra4uDf8IwUf82k34MBlHZ+iLHjFpMlYG7xURjWgFG+dt5YpwIroGXiVGOQyiCpUpP6h8BW0Yz2KL22AKqzDcLq29hRnxYQuJAWpvCK6SqPk3psPa/Ack2QIDAQAB
