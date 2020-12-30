@@ -6,5 +6,5 @@ springCloudAlibaba架构
     nacos discovery
     sentinel
     seata
-    dubbo
+    feign
     
