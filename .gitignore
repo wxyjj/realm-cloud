@@ -1,3 +1,8 @@
-cloud/.idea/
 .idea/
 *.iml
+logs/
+common/target/
+gateway/target/
+hpyf/target/
+pdd/target/
+wxyf/target/
