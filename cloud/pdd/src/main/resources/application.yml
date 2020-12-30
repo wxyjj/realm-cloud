@@ -1,11 +1,52 @@
 server:
   port: 8502
 
+spring:
+  application:
+    name: pdd
+  profiles:
+    active: dev
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
+    nacos:
+      discovery:
+        server-addr: 111.229.140.117:8848
+        username: nacos
+        password: nacos
+    sentinel:
+      transport:
+        dashboard: 111.229.140.117:8080
+
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  tx-service-group: ${spring.cloud.alibaba.seata.tx-service-group}
+  enable-auto-data-source-proxy: true
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    grouplist:
+      default: 111.229.140.117:8091
+  config:
+    type: nacos
+    nacos:
+      namespace:
+      serverAddr: ${spring.cloud.nacos.discovery.server-addr}
+      group: SEATA_GROUP
+      userName: nacos
+      password: nacos
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: ${spring.cloud.nacos.discovery.server-addr}
+      group: SEATA_GROUP
+      namespace:
+      userName: nacos
+      password: nacos
+      cluster: default
+
 logging:
   config: classpath:logback-spring.xml
-
-pdd:
-  clientId: 16efa0cb7f074cc2aed38c38f1e5a40b
-  clientSecret: 06a58ac82ee2e8afc949cd2fb2eec4bc52ccd890
-  codeUrl: https://mms.pinduoduo.com/open.html?response_type=code&client_id=16efa0cb7f074cc2aed38c38f1e5a40b&redirect_uri=http://testpdd.biebailai.com/callback
-  wsAddress: wss://message-api.pinduoduo.com

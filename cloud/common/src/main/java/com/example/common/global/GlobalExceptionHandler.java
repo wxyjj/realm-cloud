@@ -25,20 +25,24 @@ import java.io.StringWriter;
 public class GlobalExceptionHandler {
 
     @ResponseBody
+    @ExceptionHandler(value = ApiException.class)
+    public Result<Object> handle(ApiException exception) {
+        log.error(errInfo(exception));
+        IErrorCode errorCode = exception.getErrorCode();
+        return Result.failed(errorCode, errorCode.getMessage());
+    }
+
+    @ResponseBody
+    @ExceptionHandler(value = CryptoException.class)
+    public Result<Object> handle(CryptoException exception) {
+        log.error(errInfo(exception));
+        return Result.failed("数据加密|解密失败");
+    }
+
+    @ResponseBody
     @ExceptionHandler(value = Exception.class)
     public Result<Object> handle(Exception exception) {
-        log.error(this.errInfo(exception));
-        if (exception instanceof ApiException) {
-            ApiException apiException = (ApiException) exception;
-            IErrorCode errorCode = apiException.getErrorCode();
-            if (null != errorCode) {
-                return Result.failed(errorCode, errorCode.getMessage());
-            } else {
-                return Result.failed();
-            }
-        } else if (exception instanceof CryptoException) {
-            return Result.failed("数据加密|解密失败");
-        }
+        log.error(errInfo(exception));
         return Result.failed(exception.getMessage());
     }
 
