@@ -12,6 +12,7 @@ public enum ResultCode implements IErrorCode {
     UNAUTHORIZED(401, "暂未登录或token已经过期"),
     FORBIDDEN(403, "没有相关权限"),
     DOWNGRADE(-1, "服务降级"),
+    PERMISSION_ERROR(-2, "网关验证权限错误，非法的参数头!"),
     ;
 
     private final long code;

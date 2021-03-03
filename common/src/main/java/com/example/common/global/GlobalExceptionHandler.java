@@ -5,6 +5,7 @@ import com.example.common.support.ApiException;
 import com.example.common.support.IErrorCode;
 import com.example.common.support.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -26,7 +27,7 @@ public class GlobalExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = ApiException.class)
-    public Result<Object> handle(ApiException exception) {
+    public Result<Object> handleOne(ApiException exception) {
         log.error(errInfo(exception));
         IErrorCode errorCode = exception.getErrorCode();
         return Result.failed(errorCode, errorCode.getMessage());
@@ -34,9 +35,16 @@ public class GlobalExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = CryptoException.class)
-    public Result<Object> handle(CryptoException exception) {
+    public Result<Object> handleTwo(CryptoException exception) {
         log.error(errInfo(exception));
         return Result.failed("数据加密|解密失败");
+    }
+
+    @ResponseBody
+    @ExceptionHandler(value = HttpMessageNotReadableException.class)
+    public Result<Object> handleThree(HttpMessageNotReadableException exception) {
+        log.error(errInfo(exception));
+        return Result.failed("请求体JSON格式错误");
     }
 
     @ResponseBody
@@ -45,7 +53,6 @@ public class GlobalExceptionHandler {
         log.error(errInfo(exception));
         return Result.failed(exception.getMessage());
     }
-
 
     public String errInfo(Exception e) {
         String str = "";
