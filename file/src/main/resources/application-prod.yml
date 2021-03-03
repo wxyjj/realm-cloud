@@ -1,3 +1,14 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+
 minio:
   endpoint: http://192.168.1.196:9000
   bucketName: realm

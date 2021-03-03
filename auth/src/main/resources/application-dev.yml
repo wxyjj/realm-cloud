@@ -8,9 +8,3 @@ spring:
     sentinel:
       transport:
         dashboard: 127.0.0.1:8080
-
-minio:
-  endpoint: http://192.168.1.196:9000
-  bucketName: realm
-  accessKey: root
-  secretKey: 831001@Hq
