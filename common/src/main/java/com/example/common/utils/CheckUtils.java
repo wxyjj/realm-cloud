@@ -32,4 +32,23 @@ public final class CheckUtils {
         }
     }
 
+    /**
+     * 空值校验并返回
+     *
+     * @param t         泛指
+     * @param exception 自定义异常
+     * @see Optional#isPresent()
+     * @see ObjectUtils#isEmpty(Object[])
+     * @see StringUtils#hasLength(CharSequence)
+     * @see StringUtils#isEmpty(Object)
+     * @see CollectionUtils#isEmpty(java.util.Collection)
+     * @see CollectionUtils#isEmpty(java.util.Map)
+     */
+    public static <T> T checkNullReturn(T t, ApiException exception) {
+        if (ObjectUtils.isEmpty(t)) {
+            throw exception;
+        }
+        return t;
+    }
+
 }

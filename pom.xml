@@ -124,6 +124,7 @@
     <modules>
         <module>common</module>
         <module>gateway</module>
+        <module>file</module>
     </modules>
 
 </project>

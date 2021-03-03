@@ -1,0 +1,23 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: file
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 100MB
+      max-file-size: 100MB
+      resolve-lazily: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
