@@ -115,18 +115,4 @@ public class Result<T> {
     public static <T> Result<T> forbidden(T data) {
         return new Result<>(ResultCode.FORBIDDEN.getCode(), ResultCode.FORBIDDEN.getMessage(), data);
     }
-
-    /**
-     * 服务降级
-     */
-    public static <T> Result<T> downgrade() {
-        return new Result<>(ResultCode.DOWNGRADE.getCode(), ResultCode.DOWNGRADE.getMessage(), null);
-    }
-
-    /**
-     * 网关权限验证
-     */
-    public static <T> Result<T> permissionError() {
-        return new Result<>(ResultCode.PERMISSION_ERROR.getCode(), ResultCode.PERMISSION_ERROR.getMessage(), null);
-    }
 }

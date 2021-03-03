@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 import springfox.documentation.swagger.web.*;
 
-import javax.annotation.Resource;
 import java.util.Optional;
 
 /**
@@ -24,7 +23,7 @@ public class SwaggerHandler {
     private SecurityConfiguration securityConfiguration;
     @Autowired(required = false)
     private UiConfiguration uiConfiguration;
-    @Resource
+    @Autowired(required = false)
     private SwaggerResourcesProvider swaggerResources;
 
     @GetMapping("/swagger-resources/configuration/security")
