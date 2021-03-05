@@ -17,6 +17,8 @@ management:
       show-details: always
 
 feign:
+  sentinel:
+    enabled: true
   client:
     config:
       default:
