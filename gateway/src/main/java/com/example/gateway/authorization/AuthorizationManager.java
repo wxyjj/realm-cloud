@@ -75,16 +75,9 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
             if (AuthConstant.ADMIN_CLIENT_ID.equals(clientId) && !pathMatcher.match(AuthConstant.ADMIN_URL_PATTERN, path)) {
                 return Mono.just(new AuthorizationDecision(false));
             }
-            if (AuthConstant.PORTAL_CLIENT_ID.equals(clientId) && pathMatcher.match(AuthConstant.ADMIN_URL_PATTERN, path)) {
-                return Mono.just(new AuthorizationDecision(false));
-            }
         } catch (ParseException e) {
             log.info(e.getMessage());
             return Mono.just(new AuthorizationDecision(false));
-        }
-        //非管理端路径直接放行
-        if (!pathMatcher.match(AuthConstant.ADMIN_URL_PATTERN, path)) {
-            return Mono.just(new AuthorizationDecision(true));
         }
         //管理端路径需校验权限
         Map<Object, Object> resourceRolesMap = redisTemplate.opsForHash().entries(AuthConstant.RESOURCE_ROLES_MAP_KEY);

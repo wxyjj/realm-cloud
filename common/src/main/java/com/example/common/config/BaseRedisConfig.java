@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
@@ -28,6 +29,7 @@ import java.time.Duration;
  * @Version 1.0
  */
 @Configuration
+@ComponentScan(basePackages = "com.example")
 public class BaseRedisConfig{
 
     @Bean

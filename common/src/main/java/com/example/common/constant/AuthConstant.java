@@ -21,17 +21,12 @@ public interface AuthConstant {
     /**
      * 后台管理client_id
      */
-    String ADMIN_CLIENT_ID = "admin-app";
-
-    /**
-     * 前台商城client_id
-     */
-    String PORTAL_CLIENT_ID = "portal-app";
+    String ADMIN_CLIENT_ID = "admin";
 
     /**
      * 后台管理接口路径匹配
      */
-    String ADMIN_URL_PATTERN = "/mall-admin/**";
+    String ADMIN_URL_PATTERN = "/auth/**";
 
     /**
      * Redis缓存权限规则key

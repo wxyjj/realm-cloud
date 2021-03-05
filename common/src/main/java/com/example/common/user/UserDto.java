@@ -2,6 +2,7 @@ package com.example.common.user;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,7 +13,9 @@ import java.util.List;
  * @Version 1.0
  */
 @Data
-public class UserDto {
+public class UserDto implements Serializable {
+    private static final long serialVersionUID = 4135560154825374924L;
+
     private Long id;
     private String username;
     private String password;

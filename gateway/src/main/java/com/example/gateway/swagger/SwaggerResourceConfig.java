@@ -1,5 +1,6 @@
 package com.example.gateway.swagger;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.config.GatewayProperties;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.support.NameUtils;
@@ -25,6 +26,7 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider {
     private final RouteLocator routeLocator;
     private final GatewayProperties gatewayProperties;
 
+    @Autowired
     public SwaggerResourceConfig(RouteLocator routeLocator, GatewayProperties gatewayProperties) {
         this.routeLocator = routeLocator;
         this.gatewayProperties = gatewayProperties;
