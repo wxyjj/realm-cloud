@@ -4,14 +4,9 @@ import com.example.auth.constant.MessageConstant;
 import com.example.auth.dto.SecurityUser;
 import com.example.auth.feign.UmsFeign;
 import com.example.common.constant.AuthConstant;
-import com.example.common.support.ApiException;
 import com.example.common.support.Result;
-import com.example.common.support.ResultCode;
 import com.example.common.user.UserDto;
-import org.springframework.security.authentication.AccountExpiredException;
-import org.springframework.security.authentication.CredentialsExpiredException;
-import org.springframework.security.authentication.DisabledException;
-import org.springframework.security.authentication.LockedException;
+import org.springframework.security.authentication.*;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -41,7 +36,7 @@ public class UserServiceImpl implements UserDetailsService {
         if (AuthConstant.ADMIN_CLIENT_ID.equals(clientId)) {
             Result<UserDto> result = umsFeign.loadUserByUsername(username);
             if (result.getCode() != 200L) {
-                throw new ApiException(ResultCode.DEMOTION);
+                throw new AuthenticationServiceException(MessageConstant.DEMOTION);
             }
             userDto = result.getData();
         }

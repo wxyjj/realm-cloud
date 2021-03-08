@@ -3,10 +3,10 @@ package com.example.auth.exception;
 import com.example.common.support.Result;
 import com.example.common.utils.LogPrintUtils;
 import org.springframework.core.annotation.Order;
-import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
-import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 全局处理Oauth2抛出的异常
@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @Version 1.0
  */
 @Order(0)
-@ControllerAdvice
+@RestControllerAdvice
 public class Oauth2ExceptionHandler {
 
     @ResponseBody
-    @ExceptionHandler(value = OAuth2Exception.class)
-    public Result handleOauth(OAuth2Exception exception) {
+    @ExceptionHandler(value = AuthenticationException.class)
+    public Result handleOauth(AuthenticationException exception) {
         LogPrintUtils.errInfo(exception);
         return Result.failed(exception.getMessage());
     }

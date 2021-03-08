@@ -46,11 +46,11 @@ ignore:
     - /doc.html
     - /swagger-resources/**
     - /swagger/**
-    - /v2/api-docs
-    - /*.js
-    - /*.css
-    - /*.png
-    - /*.ico
+    - /*/v2/api-docs
+    - /*/*.js
+    - /*/*.css
+    - /*/*.png
+    - /*/*.ico
     - /webjars/springfox-swagger-ui/**
     - /auth/oauth/token
     - /auth/rsa/publicKey
