@@ -115,4 +115,11 @@ public class Result<T> {
     public static <T> Result<T> forbidden(T data) {
         return new Result<>(ResultCode.FORBIDDEN.getCode(), ResultCode.FORBIDDEN.getMessage(), data);
     }
+
+    /**
+     * 熔断降级返回结果
+     */
+    public static <T> Result<T> demotion() {
+        return new Result<>(ResultCode.DEMOTION.getCode(), ResultCode.DEMOTION.getMessage(), null);
+    }
 }

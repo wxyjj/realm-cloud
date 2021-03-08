@@ -1,6 +1,7 @@
 package com.example.auth.feign;
 
 import com.example.auth.config.BasicConfig;
+import com.example.common.support.Result;
 import com.example.common.user.UserDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,5 +16,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UmsFeign {
 
     @GetMapping("/user/loadUserByUsername")
-    UserDto loadUserByUsername(@RequestParam(value = "username") String username);
+    Result<UserDto> loadUserByUsername(@RequestParam(value = "username") String username);
 }

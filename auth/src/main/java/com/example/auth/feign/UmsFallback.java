@@ -1,5 +1,6 @@
 package com.example.auth.feign;
 
+import com.example.common.support.Result;
 import com.example.common.user.UserDto;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class UmsFallback implements UmsFeign {
 
     @Override
-    public UserDto loadUserByUsername(String username) {
-        return null;
+    public Result<UserDto> loadUserByUsername(String username) {
+        return Result.demotion();
     }
 }
