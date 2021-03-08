@@ -4,6 +4,9 @@ import com.example.auth.constant.MessageConstant;
 import com.example.auth.dto.SecurityUser;
 import com.example.auth.feign.UmsFeign;
 import com.example.common.constant.AuthConstant;
+import com.example.common.support.ApiException;
+import com.example.common.support.Result;
+import com.example.common.support.ResultCode;
 import com.example.common.user.UserDto;
 import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.security.authentication.CredentialsExpiredException;
@@ -36,7 +39,11 @@ public class UserServiceImpl implements UserDetailsService {
         String clientId = request.getParameter("client_id");
         UserDto userDto = null;
         if (AuthConstant.ADMIN_CLIENT_ID.equals(clientId)) {
-            userDto = umsFeign.loadUserByUsername(username);
+            Result<UserDto> result = umsFeign.loadUserByUsername(username);
+            if (result.getCode() != 200L) {
+                throw new ApiException(ResultCode.DEMOTION);
+            }
+            userDto = result.getData();
         }
         if (null == userDto) {
             throw new UsernameNotFoundException(MessageConstant.USERNAME_PASSWORD_ERROR);
