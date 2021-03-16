@@ -24,6 +24,10 @@ public class Result<T> {
         this.msg = msg;
     }
 
+    protected Result() {
+
+    }
+
     /**
      * 成功返回结果
      *

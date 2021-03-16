@@ -21,7 +21,7 @@ public class Oauth2ExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = AuthenticationException.class)
-    public Result handleOauth(AuthenticationException exception) {
+    public Result<Object> handleOauth(AuthenticationException exception) {
         LogPrintUtils.errInfo(exception);
         return Result.failed(exception.getMessage());
     }

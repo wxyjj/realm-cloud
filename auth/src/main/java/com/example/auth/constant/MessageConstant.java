@@ -18,7 +18,4 @@ public class MessageConstant {
     public static final String ACCOUNT_LOCKED = "该账号已被锁定，请联系管理员!";
 
     public static final String ACCOUNT_EXPIRED = "该账号已过期，请联系管理员!";
-
-    public static final String DEMOTION = "熔断降级";
-
 }

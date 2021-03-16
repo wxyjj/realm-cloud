@@ -25,6 +25,12 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix=1
+        - id: ums
+          uri: lb://ums/
+          predicates:
+            - Path=/ums/**
+          filters:
+            - StripPrefix=1
 #配置RSA的公钥访问地址
   security:
     oauth2:
@@ -43,14 +49,14 @@ management:
 
 ignore:
   urls:
-    - /doc.html
-    - /swagger-resources/**
-    - /swagger/**
-    - /*/v2/api-docs
-    - /*/*.js
-    - /*/*.css
-    - /*/*.png
-    - /*/*.ico
-    - /webjars/springfox-swagger-ui/**
-    - /auth/oauth/token
-    - /auth/rsa/publicKey
+    - "/doc.html"
+    - "/swagger-resources/**"
+    - "/swagger/**"
+    - "/**/v2/api-docs"
+    - "/**/*.js"
+    - "/**/*.css"
+    - "/**/*.png"
+    - "/**/*.ico"
+    - "/webjars/springfox-swagger-ui/**"
+    - "/auth/oauth/token"
+    - "/auth/rsa/publicKey"

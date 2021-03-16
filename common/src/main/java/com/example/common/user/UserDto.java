@@ -16,10 +16,10 @@ import java.util.List;
 public class UserDto implements Serializable {
     private static final long serialVersionUID = 4135560154825374924L;
 
-    private Long id;
+    private String id;
     private String username;
     private String password;
-    private Integer status;
+    private Boolean status;
     private String clientId;
     private List<String> roles;
 }

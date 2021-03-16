@@ -140,6 +140,7 @@
         <module>gateway</module>
         <module>file</module>
         <module>auth</module>
+        <module>ums</module>
     </modules>
 
 </project>

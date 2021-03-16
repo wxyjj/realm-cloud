@@ -23,7 +23,7 @@ public class SecurityUser implements UserDetails {
     /**
      * ID
      */
-    private Long id;
+    private String id;
     /**
      * 用户名
      */
@@ -52,7 +52,7 @@ public class SecurityUser implements UserDetails {
         this.setId(userDto.getId());
         this.setUsername(userDto.getUsername());
         this.setPassword(userDto.getPassword());
-        this.setEnabled(userDto.getStatus() == 1);
+        this.setEnabled(userDto.getStatus());
         this.setClientId(userDto.getClientId());
         this.setAuthorities(userDto.getRoles().stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList()));
     }

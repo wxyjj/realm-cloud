@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  * @Version 1.0
  */
 @Configuration
-public class BasicConfig {
+public class FeignConfig {
     @Bean
     public Encoder feignFormEncoder() {
         return new SpringFormEncoder();

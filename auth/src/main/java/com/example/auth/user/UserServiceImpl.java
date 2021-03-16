@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserDetailsService {
         if (AuthConstant.ADMIN_CLIENT_ID.equals(clientId)) {
             Result<UserDto> result = umsFeign.loadUserByUsername(username);
             if (result.getCode() != 200L) {
-                throw new AuthenticationServiceException(MessageConstant.DEMOTION);
+                throw new AuthenticationServiceException(result.getMsg());
             }
             userDto = result.getData();
         }

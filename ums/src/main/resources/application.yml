@@ -1,0 +1,26 @@
+server:
+  port: 8300
+
+spring:
+  application:
+    name: ums
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+feign:
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 60000
