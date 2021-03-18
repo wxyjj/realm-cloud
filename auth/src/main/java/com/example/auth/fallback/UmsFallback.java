@@ -1,5 +1,6 @@
-package com.example.auth.feign;
+package com.example.auth.fallback;
 
+import com.example.auth.feign.UmsFeign;
 import com.example.common.support.Result;
 import com.example.common.user.UserDto;
 import org.springframework.stereotype.Component;

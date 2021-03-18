@@ -1,6 +1,7 @@
 package com.example.auth.feign;
 
 import com.example.auth.config.FeignConfig;
+import com.example.auth.fallback.UmsFallback;
 import com.example.common.support.Result;
 import com.example.common.user.UserDto;
 import org.springframework.cloud.openfeign.FeignClient;

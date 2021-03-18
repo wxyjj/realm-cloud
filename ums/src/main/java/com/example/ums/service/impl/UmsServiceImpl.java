@@ -49,7 +49,6 @@ public class UmsServiceImpl implements UmsService {
             throw new ApiException(10000, "未查询到权限列表");
         }
         List<String> roleStrList = umsRoleList.stream().map(m -> m.getId() + "_" + m.getName()).collect(Collectors.toList());
-
         UserDto dto = new UserDto();
         dto.setId(admin.getId());
         dto.setUsername(admin.getUsername());
