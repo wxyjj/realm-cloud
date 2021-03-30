@@ -1,4 +1,4 @@
-package com.example.common.redis;
+package com.example.gateway.redis;
 
 /**
  * @Author wxy

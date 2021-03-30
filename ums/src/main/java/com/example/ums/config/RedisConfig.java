@@ -1,13 +1,10 @@
-package com.example.common.config;
+package com.example.ums.config;
 
-import com.example.common.redis.RedisService;
-import com.example.common.redis.RedisServiceImpl;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
@@ -29,8 +26,7 @@ import java.time.Duration;
  * @Version 1.0
  */
 @Configuration
-@ComponentScan(basePackages = "com.example")
-public class BaseRedisConfig{
+public class RedisConfig {
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
@@ -64,10 +60,5 @@ public class BaseRedisConfig{
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer())).entryTtl(Duration.ofDays(1));
         return new RedisCacheManager(redisCacheWriter, redisCacheConfiguration);
-    }
-
-    @Bean
-    public RedisService redisService(){
-        return new RedisServiceImpl();
     }
 }

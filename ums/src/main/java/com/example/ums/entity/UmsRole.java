@@ -2,10 +2,7 @@ package com.example.ums.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,11 +16,14 @@ import java.util.Date;
 @Table(name = "ums_role")
 @org.hibernate.annotations.Table(appliesTo = "ums_role", comment = "用户-权限")
 public class UmsRole implements Serializable {
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = 3723451737853972972L;
     @Id
-    @Column(name = "id", columnDefinition = "varchar(32) comment '主键id'")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", columnDefinition = "integer(11) comment '主键id'")
+    private Integer id;
+    @Column(name = "role_id", columnDefinition = "varchar(32) comment 'role_id'")
+    private String roleId;
     @Column(name = "name", columnDefinition = "varchar(255) comment '名称'")
     private String name;
     @Column(name = "description", columnDefinition = "varchar(255) comment '描述'")

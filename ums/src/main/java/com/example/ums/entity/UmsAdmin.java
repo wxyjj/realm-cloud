@@ -2,12 +2,10 @@ package com.example.ums.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author wxy
@@ -18,12 +16,18 @@ import java.util.Date;
 @Data
 @Table(name = "ums_admin")
 @org.hibernate.annotations.Table(appliesTo = "ums_admin", comment = "用户")
+@NamedEntityGraphs({
+        @NamedEntityGraph(name = "admin-with-roles", attributeNodes = {@NamedAttributeNode("umsRole")})
+})
 public class UmsAdmin implements Serializable {
-    private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = -5102187452127152102L;
     @Id
-    @Column(name = "id", columnDefinition = "varchar(32) comment '主键id'")
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", columnDefinition = "integer(11) comment '主键id'")
+    private Integer id;
+    @Column(name = "admin_id", columnDefinition = "varchar(32) comment 'admin_id'")
+    private String adminId;
     @Column(name = "username", columnDefinition = "varchar(50) comment '姓名'")
     private String username;
     @Column(name = "password", columnDefinition = "varchar(100) comment '密码'")
@@ -42,4 +46,8 @@ public class UmsAdmin implements Serializable {
     private Date loginTime;
     @Column(name = "status", columnDefinition = "tinyint(1) comment '帐号启用状态：0->禁用；1->启用'")
     private Boolean status;
+
+    @OneToMany(fetch = FetchType.LAZY, targetEntity = UmsRole.class)
+    @JoinTable(name = "ums_admin_role_rel", joinColumns = @JoinColumn(name = "admin_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<UmsRole> umsRole;
 }

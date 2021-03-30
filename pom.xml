@@ -16,16 +16,15 @@
 
         <jjwt.version>0.9.0</jjwt.version>
         <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
-        <mybatis.version>2.1.3</mybatis.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <pagehelper.version>1.3.0</pagehelper.version>
         <knife4j.version>2.0.5</knife4j.version>
         <hutool.version>5.4.3</hutool.version>
-        <pagehelper.version>1.3.0</pagehelper.version>
         <minio.version>7.1.0</minio.version>
         <easyexcel.version>2.2.6</easyexcel.version>
         <weixin-java-mp.version>4.0.0</weixin-java-mp.version>
         <weixin-java-miniapp.version>4.0.0</weixin-java-miniapp.version>
         <weixin-java-pay.version>3.8.0</weixin-java-pay.version>
-        <geodesy.version>1.1.3</geodesy.version>
     </properties>
 
     <dependencyManagement>
@@ -73,23 +72,11 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
-            <!-- pagehelper -->
-            <dependency>
-                <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper.version}</version>
-            </dependency>
             <!-- minio -->
             <dependency>
                 <groupId>io.minio</groupId>
                 <artifactId>minio</artifactId>
                 <version>${minio.version}</version>
-            </dependency>
-            <!-- mybatis -->
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.version}</version>
             </dependency>
             <!-- easyexcel -->
             <dependency>
@@ -125,12 +112,6 @@
                 <groupId>com.github.binarywang</groupId>
                 <artifactId>weixin-java-pay</artifactId>
                 <version>${weixin-java-pay.version}</version>
-            </dependency>
-            <!--谷歌经纬度计算-->
-            <dependency>
-                <groupId>org.gavaghan</groupId>
-                <artifactId>geodesy</artifactId>
-                <version>${geodesy.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

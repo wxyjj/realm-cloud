@@ -13,8 +13,8 @@ import java.io.Serializable;
 @Component
 @ConfigurationProperties("minio")
 public class MinIoProperties implements Serializable {
-    private static final long serialVersionUID = 1285984176245419652L;
 
+    private static final long serialVersionUID = 1285984176245419652L;
     /**
      * MinIO服务的URL
      */

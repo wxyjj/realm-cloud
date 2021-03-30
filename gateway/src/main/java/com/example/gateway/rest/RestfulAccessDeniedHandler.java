@@ -1,4 +1,4 @@
-package com.example.gateway.component;
+package com.example.gateway.rest;
 
 import cn.hutool.json.JSONUtil;
 import com.example.common.support.Result;

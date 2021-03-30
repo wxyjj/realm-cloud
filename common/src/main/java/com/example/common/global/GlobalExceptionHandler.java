@@ -5,7 +5,6 @@ import com.example.common.support.ApiException;
 import com.example.common.support.IErrorCode;
 import com.example.common.support.Result;
 import com.example.common.utils.LogPrintUtils;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * @Date 2020/9/22 13:08
  * @Version 1.0
  */
-@Order(1)
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

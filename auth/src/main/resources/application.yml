@@ -24,3 +24,12 @@ feign:
       default:
         connectTimeout: 60000
         readTimeout: 60000
+
+swagger:
+  apiBasePackage: "com.example.auth.controller"
+  title: "权限认证"
+  description: "权限认证"
+  version: "1.0"
+  contactName: "wxy"
+  contactUrl: "www.wxyjj.top"
+  contactEmail: "1083762642@qq.com"

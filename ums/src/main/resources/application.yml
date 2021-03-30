@@ -24,3 +24,12 @@ feign:
       default:
         connectTimeout: 60000
         readTimeout: 60000
+
+swagger:
+  apiBasePackage: "com.example.ums.controller"
+  title: "用户服务"
+  description: "用户服务"
+  version: "1.0"
+  contactName: "wxy"
+  contactUrl: "www.wxyjj.top"
+  contactEmail: "1083762642@qq.com"

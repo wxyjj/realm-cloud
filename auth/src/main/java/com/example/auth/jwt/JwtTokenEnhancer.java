@@ -1,4 +1,4 @@
-package com.example.auth.component;
+package com.example.auth.jwt;
 
 import com.example.auth.dto.SecurityUser;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;

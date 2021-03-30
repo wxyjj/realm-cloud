@@ -1,6 +1,6 @@
 package com.example.auth.config;
 
-import com.example.auth.component.JwtTokenEnhancer;
+import com.example.auth.jwt.JwtTokenEnhancer;
 import com.example.auth.user.UserServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;

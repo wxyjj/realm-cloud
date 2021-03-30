@@ -21,3 +21,12 @@ management:
   endpoint:
     health:
       show-details: always
+
+swagger:
+  apiBasePackage: "com.example.file.controller"
+  title: "文件服务"
+  description: "文件服务"
+  version: "1.0"
+  contactName: "wxy"
+  contactUrl: "www.wxyjj.top"
+  contactEmail: "1083762642@qq.com"
