@@ -1,4 +1,4 @@
-package com.example.ums.dto;
+package com.example.ums.dto.resp;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -12,8 +12,8 @@ import java.io.Serializable;
  */
 @Data
 public class RoleResp1 implements Serializable {
-    private static final long serialVersionUID = 8258395752507138600L;
 
+    private static final long serialVersionUID = 8258395752507138600L;
     @ApiModelProperty(value = "权限id")
     private String roleId;
     @ApiModelProperty(value = "名称")

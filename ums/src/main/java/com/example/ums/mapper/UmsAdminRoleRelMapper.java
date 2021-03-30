@@ -1,7 +1,7 @@
 package com.example.ums.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.ums.dto.RoleResp1;
+import com.example.ums.dto.resp.RoleResp1;
 import com.example.ums.entity.UmsAdminRoleRel;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

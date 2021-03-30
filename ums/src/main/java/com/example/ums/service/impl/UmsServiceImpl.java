@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import com.example.common.support.ApiException;
 import com.example.common.user.UserDto;
 import com.example.common.utils.CheckUtils;
-import com.example.ums.dto.RoleResp1;
+import com.example.ums.dto.resp.RoleResp1;
 import com.example.ums.entity.UmsAdmin;
 import com.example.ums.mapper.UmsAdminMapper;
 import com.example.ums.mapper.UmsAdminRoleRelMapper;
