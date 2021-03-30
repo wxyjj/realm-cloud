@@ -112,14 +112,6 @@
     <logger name="com.baomidou" level="INFO"/>
     <logger name="com.zaxxer.hikari" level="INFO"/>
 
-    <!-- 输出Hibernate SQL到控制台和文件-->
-    <logger name="org.hibernate.SQL" additivity="false">
-        <level value="DEBUG"/>
-        <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="DEBUG"/>
-    </logger>
-    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
-
     <root>
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="DEBUG"/>

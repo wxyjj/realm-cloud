@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @Author wxy
@@ -16,9 +15,6 @@ import java.util.List;
 @Data
 @Table(name = "ums_admin")
 @org.hibernate.annotations.Table(appliesTo = "ums_admin", comment = "用户")
-@NamedEntityGraphs({
-        @NamedEntityGraph(name = "admin-with-roles", attributeNodes = {@NamedAttributeNode("umsRole")})
-})
 public class UmsAdmin implements Serializable {
 
     private static final long serialVersionUID = -5102187452127152102L;
@@ -46,8 +42,4 @@ public class UmsAdmin implements Serializable {
     private Date loginTime;
     @Column(name = "status", columnDefinition = "tinyint(1) comment '帐号启用状态：0->禁用；1->启用'")
     private Boolean status;
-
-    @OneToMany(fetch = FetchType.LAZY, targetEntity = UmsRole.class)
-    @JoinTable(name = "ums_admin_role_rel", joinColumns = @JoinColumn(name = "admin_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<UmsRole> umsRole;
 }
