@@ -29,6 +29,7 @@ spring:
     hibernate:
       ddl-auto: update
       use-new-id-generator-mappings: true
+    database-platform: com.example.ums.MySqlInnoDbDialect
     open-in-view: true
     properties:
       hibernate:
