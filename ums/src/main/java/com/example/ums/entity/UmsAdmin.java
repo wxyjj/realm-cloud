@@ -1,5 +1,7 @@
 package com.example.ums.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,8 +22,9 @@ public class UmsAdmin implements Serializable {
     private static final long serialVersionUID = -5102187452127152102L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", columnDefinition = "integer(11) comment '主键id'")
-    private Integer id;
+    @TableId(value = "id", type = IdType.AUTO)
+    @Column(name = "id", columnDefinition = "bigint(20) comment '主键id'")
+    private Long id;
     @Column(name = "admin_id", columnDefinition = "varchar(32) comment 'admin_id'")
     private String adminId;
     @Column(name = "username", columnDefinition = "varchar(50) comment '姓名'")

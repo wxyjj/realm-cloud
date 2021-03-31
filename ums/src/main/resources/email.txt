@@ -1,0 +1,16 @@
+Hey Ladies/gentlemen!
+
+A sign in attempt requires further verification because we did not recognize your device. To complete the sign in, enter the verification code on the unrecognized device.
+
+Device: %s
+Verification code: %s
+
+If you did not attempt to sign in to your account, your password may be compromised.
+
+If you'd like to automatically verify devices in the future, consider enabling two-factor authentication on your account.
+
+If you decide to enable two-factor authentication, ensure you retain access to one or more account recovery methods.
+
+Thanks,
+
+The wxy Team

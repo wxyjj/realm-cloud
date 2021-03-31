@@ -14,4 +14,7 @@ public interface UmsAdminMapper extends BaseMapper<UmsAdmin> {
 
     @Select("select a.* from ums_admin as a where a.username = #{userName}")
     UmsAdmin findUmsAdminByUserName(@Param("userName") String userName);
+
+    @Select("select a.email from ums_admin as a where a.username = #{userName}")
+    String findEmailByUserName(@Param("userName") String userName);
 }
