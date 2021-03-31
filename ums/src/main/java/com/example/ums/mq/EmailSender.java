@@ -19,10 +19,14 @@ public class EmailSender {
     private AmqpTemplate amqpTemplate;
 
     public void sendMessage(EmailDto dto, Long delayTime) {
+        //交换机
+        String exchange = QUEUE_TTL_EMAIL_CANCEL.getExchange();
+        //路由key
+        String routeKey = QUEUE_TTL_EMAIL_CANCEL.getRouteKey();
         //给延迟队列发送消息
-        amqpTemplate.convertAndSend(QUEUE_TTL_EMAIL_CANCEL.getExchange(), QUEUE_TTL_EMAIL_CANCEL.getRouteKey(), dto, message -> {
+        amqpTemplate.convertAndSend(exchange, routeKey, dto, message -> {
             //给消息设置延迟毫秒值
-            message.getMessageProperties().setExpiration(String.valueOf(delayTime));
+            message.getMessageProperties().setExpiration(delayTime.toString());
             return message;
         });
     }

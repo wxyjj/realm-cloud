@@ -14,8 +14,12 @@ import java.io.Serializable;
 public class EmailDto implements Serializable {
 
     private static final long serialVersionUID = 1709624039441867793L;
+    @ApiModelProperty(value = "消息id")
+    private String msgId;
     @ApiModelProperty(value = "用户邮箱")
     private String userEmail;
+    @ApiModelProperty(value = "邮件主题")
+    private String subject;
     @ApiModelProperty(value = "邮件内容")
     private String content;
 }

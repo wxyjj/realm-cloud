@@ -53,6 +53,18 @@ spring:
   rabbitmq:
     host: 127.0.0.1
     port: 5672
-    virtual-host: /wxy
-    username: wxy
-    password: wxy
+    username: guest
+    password: guest
+  mail:
+    host: smtp.163.com
+    username: a18723837421@163.com
+    password: BBQXJUJVSWDCOOJK
+    protocol: smtp
+    default-encoding: utf-8
+    properties:
+      mail:
+        stmp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
