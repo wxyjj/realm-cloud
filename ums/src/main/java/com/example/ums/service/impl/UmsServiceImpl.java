@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.InputStream;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -91,7 +92,7 @@ public class UmsServiceImpl implements UmsService {
         emailDto.setUserEmail(email);
         emailDto.setSubject("Please verify your device");
         emailDto.setContent(content);
-        emailSender.sendMessage(emailDto, 60000L);
+        emailSender.sendMessage(emailDto, Duration.ofMinutes(1));
         return null;
     }
 }

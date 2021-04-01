@@ -5,6 +5,7 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.time.Duration;
 
 import static com.example.ums.enums.QueueEnum.QUEUE_TTL_EMAIL_CANCEL;
 
@@ -18,7 +19,8 @@ public class EmailSender {
     @Resource
     private AmqpTemplate amqpTemplate;
 
-    public void sendMessage(EmailDto dto, Long delayTime) {
+    public void sendMessage(EmailDto dto, Duration duration) {
+        String delayTime = Long.toString(duration.toMinutes());
         //交换机
         String exchange = QUEUE_TTL_EMAIL_CANCEL.getExchange();
         //路由key
@@ -26,7 +28,7 @@ public class EmailSender {
         //给延迟队列发送消息
         amqpTemplate.convertAndSend(exchange, routeKey, dto, message -> {
             //给消息设置延迟毫秒值
-            message.getMessageProperties().setExpiration(delayTime.toString());
+            message.getMessageProperties().setExpiration(delayTime);
             return message;
         });
     }
