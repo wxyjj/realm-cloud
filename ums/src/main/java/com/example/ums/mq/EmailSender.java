@@ -1,13 +1,20 @@
 package com.example.ums.mq;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.ums.dto.EmailDto;
-import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageBuilder;
+import org.springframework.amqp.core.MessageProperties;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.time.Duration;
 
 import static com.example.ums.enums.QueueEnum.QUEUE_TTL_EMAIL_CANCEL;
+import static org.springframework.amqp.core.MessageDeliveryMode.PERSISTENT;
+import static org.springframework.amqp.core.MessageProperties.CONTENT_TYPE_JSON;
 
 /**
  * @Author wxy
@@ -17,19 +24,23 @@ import static com.example.ums.enums.QueueEnum.QUEUE_TTL_EMAIL_CANCEL;
 @Component
 public class EmailSender {
     @Resource
-    private AmqpTemplate amqpTemplate;
+    private RabbitTemplate rabbitTemplate;
 
     public void sendMessage(EmailDto dto, Duration duration) {
-        String delayTime = Long.toString(duration.toMinutes());
-        //交换机
         String exchange = QUEUE_TTL_EMAIL_CANCEL.getExchange();
-        //路由key
         String routeKey = QUEUE_TTL_EMAIL_CANCEL.getRouteKey();
-        //给延迟队列发送消息
-        amqpTemplate.convertAndSend(exchange, routeKey, dto, message -> {
-            //给消息设置延迟毫秒值
-            message.getMessageProperties().setExpiration(delayTime);
-            return message;
-        });
+
+        String msgId = dto.getMsgId();
+        String delayTime = Long.toString(duration.toMillis());
+        byte[] body = JSONObject.toJSONString(dto).getBytes();
+
+        Message message = MessageBuilder.withBody(body).build();
+        MessageProperties messageProperties = message.getMessageProperties();
+        messageProperties.setDeliveryMode(PERSISTENT);
+        messageProperties.setContentType(CONTENT_TYPE_JSON);
+        messageProperties.setExpiration(delayTime);
+
+        CorrelationData correlationData = new CorrelationData(msgId);
+        rabbitTemplate.convertAndSend(exchange, routeKey, message, correlationData);
     }
 }

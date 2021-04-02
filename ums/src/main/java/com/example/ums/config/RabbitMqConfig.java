@@ -1,17 +1,44 @@
 package com.example.ums.config;
 
 import com.example.ums.enums.QueueEnum;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.Resource;
 
 /**
  * @Author wxy
  * @Date 2021/3/30 15:30
  * @Version 1.0
  */
+@Slf4j
 @Configuration
 public class RabbitMqConfig {
+    @Resource
+    private CachingConnectionFactory connectionFactory;
+
+    @Bean
+    public RabbitTemplate rabbitTemplate() {
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
+        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+        rabbitTemplate.setConfirmCallback((correlationData, ack, cause) -> {
+            if (ack) {
+                log.info("消息成功发送到Exchange");
+            } else {
+                log.info("消息发送到Exchange失败, {}, cause: {}", correlationData, cause);
+            }
+        });
+        rabbitTemplate.setMandatory(true);
+        rabbitTemplate.setReturnCallback((message, replyCode, replyText, exchange, routingKey) -> {
+            log.info("消息从Exchange路由到Queue失败: exchange: {}, route: {}, replyCode: {}, replyText: {}, message: {}", exchange, routingKey, replyCode, replyText, message);
+        });
+        return rabbitTemplate;
+    }
 
     /**
      * 邮件交换机

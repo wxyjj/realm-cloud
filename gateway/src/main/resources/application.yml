@@ -60,3 +60,4 @@ ignore:
     - "/webjars/springfox-swagger-ui/**"
     - "/auth/oauth/token"
     - "/auth/rsa/publicKey"
+    - "/ums/ums/sendEmail"

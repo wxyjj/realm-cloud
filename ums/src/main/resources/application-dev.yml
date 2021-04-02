@@ -55,6 +55,12 @@ spring:
     port: 5672
     username: guest
     password: guest
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 100
   mail:
     host: smtp.163.com
     username: a18723837421@163.com
