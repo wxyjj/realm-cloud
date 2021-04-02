@@ -9,4 +9,6 @@ import com.example.ums.entity.UmsEmailMsg;
  * @Version 1.0
  */
 public interface UmsEmailMsgMapper extends BaseMapper<UmsEmailMsg> {
+
+    UmsEmailMsg findUmsEmailMsgByEmailMsgId(String emailMsgId);
 }

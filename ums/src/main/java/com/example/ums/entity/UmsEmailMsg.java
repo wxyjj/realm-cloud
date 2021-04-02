@@ -31,6 +31,8 @@ public class UmsEmailMsg implements Serializable {
     private String receiveEmail;
     @Column(name = "code", columnDefinition = "integer(11) comment '邮箱code'")
     private Integer code;
+    @Column(name = "retry", columnDefinition = "integer(11) comment '重试次数'")
+    private Integer retry;
     @Column(name = "create_time", columnDefinition = "datetime(3) comment '创建时间'")
     private Date createTime;
 }
