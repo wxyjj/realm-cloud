@@ -11,7 +11,7 @@ import com.example.common.user.UserDto;
 import com.example.common.utils.CheckUtils;
 import com.example.ums.dto.EmailDto;
 import com.example.ums.dto.req.SendEmailReq;
-import com.example.ums.dto.resp.RoleResp1;
+import com.example.ums.dto.resp.RoleResp;
 import com.example.ums.entity.UmsAdmin;
 import com.example.ums.mapper.UmsAdminMapper;
 import com.example.ums.mapper.UmsAdminRoleRelMapper;
@@ -53,9 +53,9 @@ public class UmsServiceImpl implements UmsService {
         UmsAdmin umsAdmin = umsAdminMapper.findUmsAdminByUserName(username);
         CheckUtils.checkNull(umsAdmin, new ApiException(10000, "未查询到用户"));
         List<String> roleStrList = new ArrayList<>();
-        List<RoleResp1> roleResp1List = umsAdminRoleRelMapper.findRoleResp1ByAdminId(umsAdmin.getAdminId());
-        if (!CollUtil.isEmpty(roleResp1List)) {
-            roleStrList = roleResp1List.stream().map(m -> m.getRoleId() + "_" + m.getName()).collect(Collectors.toList());
+        List<RoleResp> roleRespList = umsAdminRoleRelMapper.findRoleRespByAdminId(umsAdmin.getAdminId());
+        if (!CollUtil.isEmpty(roleRespList)) {
+            roleStrList = roleRespList.stream().map(m -> m.getRoleId() + "_" + m.getName()).collect(Collectors.toList());
         }
         UserDto dto = new UserDto();
         dto.setId(umsAdmin.getAdminId());

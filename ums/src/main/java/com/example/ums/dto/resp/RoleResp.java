@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @Version 1.0
  */
 @Data
-public class RoleResp1 implements Serializable {
+public class RoleResp implements Serializable {
 
     private static final long serialVersionUID = 8258395752507138600L;
     @ApiModelProperty(value = "权限id")

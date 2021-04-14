@@ -22,4 +22,11 @@ public class UserDto implements Serializable {
     private Boolean status;
     private String clientId;
     private List<String> roles;
+
+    //jwt
+    private String exp;
+    private String user_name;
+    private String jti;
+    private String client_id;
+    private List<String> scope;
 }

@@ -61,7 +61,7 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
         if (request.getMethod() == HttpMethod.OPTIONS) {
             return Mono.just(new AuthorizationDecision(true));
         }
-        //不同用户体系登录不允许互相访问
+        //获取用户登录信息
         try {
             String token = request.getHeaders().getFirst(AuthConstant.JWT_TOKEN_HEADER);
             if (StrUtil.isEmpty(token)) {
@@ -72,14 +72,14 @@ public class AuthorizationManager implements ReactiveAuthorizationManager<Author
             String userStr = jwsObject.getPayload().toString();
             UserDto userDto = JSONUtil.toBean(userStr, UserDto.class);
             String clientId = userDto.getClientId();
-            if (AuthConstant.ADMIN_CLIENT_ID.equals(clientId) && !pathMatcher.match(AuthConstant.ADMIN_URL_PATTERN, path)) {
+            if (!AuthConstant.ADMIN_CLIENT_ID.equals(clientId)) {
                 return Mono.just(new AuthorizationDecision(false));
             }
         } catch (ParseException e) {
             log.info(e.getMessage());
             return Mono.just(new AuthorizationDecision(false));
         }
-        //管理端路径需校验权限
+        //路径资源校验权限
         Map<Object, Object> resourceRolesMap = redisTemplate.opsForHash().entries(AuthConstant.RESOURCE_ROLES_MAP_KEY);
         List<String> authorities = new ArrayList<>();
         for (Map.Entry<Object, Object> entry : resourceRolesMap.entrySet()) {

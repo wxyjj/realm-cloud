@@ -74,3 +74,6 @@ spring:
           starttls:
             enable: true
             required: true
+  elasticsearch:
+    rest:
+      uris: 127.0.0.1:9200

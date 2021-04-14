@@ -36,7 +36,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: 'http://127.0.0.1:8200/auth/rsa/publicKey'
+          jwk-set-uri: 'http://127.0.0.1:8000/auth/rsa/publicKey'
 
 management:
   endpoints:
@@ -50,14 +50,9 @@ management:
 ignore:
   urls:
     - "/doc.html"
+    - "/webjars/**"
     - "/swagger-resources/**"
-    - "/swagger/**"
-    - "/**/v2/api-docs"
-    - "/**/*.js"
-    - "/**/*.css"
-    - "/**/*.png"
-    - "/**/*.ico"
-    - "/webjars/springfox-swagger-ui/**"
+    - "/favicon.ico"
+    - "/*/v2/api-docs"
     - "/auth/oauth/token"
     - "/auth/rsa/publicKey"
-    - "/ums/ums/sendEmail"

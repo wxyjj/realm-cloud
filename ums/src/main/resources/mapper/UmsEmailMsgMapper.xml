@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.ums.mapper.UmsEmailMsgMapper">
+
+    <select id="findUmsEmailMsgByEmailMsgId" resultType="com.example.ums.entity.UmsEmailMsg">
+        select a.*
+        from ums_email_msg as a
+        where a.email_msg_id = #{emailMsgId}
+    </select>
+</mapper>
