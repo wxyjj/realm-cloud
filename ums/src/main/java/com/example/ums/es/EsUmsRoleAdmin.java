@@ -8,7 +8,6 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @Author wxy
@@ -16,25 +15,17 @@ import java.util.List;
  * @Version 1.0
  */
 @Data
-@Document(indexName = "ums", replicas = 0)
-public class EsUmsAdmin implements Serializable {
+@Document(indexName = "umsRole", replicas = 0)
+public class EsUmsRoleAdmin implements Serializable {
     private static final long serialVersionUID = -8342750933878952400L;
 
     @Id
     private Long id;
     @Field(type = FieldType.Keyword)
-    private String adminId;
-    @Field(type = FieldType.Keyword)
-    private String username;
-    private String password;
-    private String icon;
-    private String email;
-    @Field(analyzer = "ik_max_word",type = FieldType.Text)
-    private String nickName;
-    private String note;
+    private String roleId;
+    private String name;
+    private String description;
     private Date createTime;
-    private Date loginTime;
     private Boolean status;
-    @Field(type =FieldType.Nested)
-    private List<EsUmsRoleAdmin> esUmsRoleAdminList;
+    private Integer sort;
 }

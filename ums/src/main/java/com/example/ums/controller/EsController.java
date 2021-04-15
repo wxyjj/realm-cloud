@@ -1,7 +1,7 @@
 package com.example.ums.controller;
 
 import com.example.common.support.Result;
-import com.example.ums.entity.UmsAdmin;
+import com.example.ums.dto.req.ImportUmsEs;
 import com.example.ums.service.EsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,9 +24,9 @@ public class EsController {
     @Resource
     private EsService esService;
 
-    @ApiOperation(value = "导入数据到Es中")
-    @PostMapping(value = "/importEs")
-    public Result<Integer> importEs(@RequestBody UmsAdmin umsAdmin) {
-        return Result.success(esService.importEs(umsAdmin));
+    @ApiOperation(value = "导入用户数据到Es中")
+    @PostMapping(value = "/importUmsEs")
+    public Result<Integer> importUmsEs(@RequestBody ImportUmsEs importUmsEs) {
+        return Result.success(esService.importUmsEs(importUmsEs));
     }
 }

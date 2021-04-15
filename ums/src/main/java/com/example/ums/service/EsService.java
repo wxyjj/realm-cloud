@@ -1,6 +1,6 @@
 package com.example.ums.service;
 
-import com.example.ums.entity.UmsAdmin;
+import com.example.ums.dto.req.ImportUmsEs;
 
 /**
  * @Author wxy
@@ -9,6 +9,6 @@ import com.example.ums.entity.UmsAdmin;
  */
 public interface EsService {
 
-    Integer importEs(UmsAdmin umsAdmin);
+    Integer importUmsEs(ImportUmsEs importUmsEs);
 
 }
