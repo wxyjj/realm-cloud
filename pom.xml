@@ -134,6 +134,7 @@
         <module>file</module>
         <module>auth</module>
         <module>ums</module>
+        <module>netty</module>
     </modules>
 
 </project>
